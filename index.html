@@ -28,6 +28,21 @@
 .room-close{position:absolute;right:18px;top:15px;border:0;background:none;color:var(--wine);font-size:25px;cursor:pointer}
 .door-progress{margin-top:24px;color:var(--gold)}.door span{display:block;font:10px 'DM Mono';color:#d5bd91;margin-bottom:17px}.door strong{font-size:24px;font-weight:500}.door p{line-height:1.5;color:#e6d8d1}.finale{min-height:85vh;display:grid;place-items:center;text-align:center;background:#e8dfd2;padding:90px 24px}.finale-inner{max-width:780px}.finale h2{font-size:clamp(3rem,8vw,7rem);color:var(--wine)}.finale p{font-size:clamp(19px,2.5vw,26px);line-height:1.65}.signature{font-style:italic;color:var(--wine2);font-size:24px;margin-top:35px}.footer{background:var(--wine);color:#d5bd91;padding:25px;text-align:center;font:10px 'DM Mono';letter-spacing:.15em}
 @media(max-width:700px){.archive-grid{grid-template-columns:1fr}.photo{min-height:290px}.doors{grid-template-columns:1fr}.answers{grid-template-columns:1fr}.hero h1{font-size:clamp(3.2rem,16vw,6rem)}.topline{font-size:8px}.hero-foot{font-size:8px}}
+
+/* A SMALL BOUQUET FOR LIDIA */
+.flower-gift{width:min(300px,72vw);margin:38px auto 8px;animation:bouquet-arrive 1.2s ease both}
+.flower-gift svg{display:block;width:100%;height:auto;overflow:visible}
+.flower-stem{fill:none;stroke:#71805c;stroke-width:3;stroke-linecap:round}
+.flower-leaf{fill:#89916a;stroke:#71805c;stroke-width:1}
+.bloom{stroke:#b99a62;stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:flower-sway 5s ease-in-out infinite alternate}
+.bloom-rose{fill:#9d5365}.bloom-pink{fill:#d6a0a5}.bloom-cream{fill:#f5ead6}
+.bloom circle{fill:#c69d58;stroke:#a77d3d}
+.flower-wrap{fill:#b99a62}.flower-ribbon{fill:#8b4357}
+.flower-dedication{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(19px,2.6vw,25px);line-height:1.45;color:var(--wine2);max-width:470px;margin:8px auto 0}
+@keyframes bouquet-arrive{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes flower-sway{from{rotate:-2deg}to{rotate:2deg}}
+@media(prefers-reduced-motion:reduce){.flower-gift,.bloom{animation:none}}
+
 /* THE WOW EDITION */
 html{scroll-padding-top:24px}
 body{background-image:radial-gradient(#4b17270b .7px,transparent .7px);background-size:8px 8px}
@@ -226,7 +241,19 @@ article:hover .placeholder{transform:scale(1.06)}
 <section class="section secret"><div class="eyebrow">04 / Hidden details</div><h2>Le porte che<br>non si vedono <em>subito.</em></h2><p style="max-width:620px;line-height:1.7;color:#eadfce">Non troverai qui una mappa. Le porticine sono sparse nella collezione: osserva bene, clicca quando ne trovi una ed entra. Ogni stanza custodisce un piccolo segreto.</p>
 <p class="small" style="color:#d5bd91;margin-top:38px;font-size:9px">PORTE TROVATE: <span id="door-count">0</span> / 6</p>
 </section>
-<section class="finale"><button class="door-hunt" data-room="5" aria-label="Porticina nascosta"></button><div class="finale-inner"><div class="eyebrow">05 / The next chapter</div><h2>Il mondo<br>è la tua <em>passerella.</em></h2><p>Due anni fa le nostre strade si sono incrociate. Da allora ci sono stati momenti, risate e ricordi che probabilmente non dimenticheremo facilmente. Oggi però il riflettore è tutto tuo. Sono davvero felice che tu abbia raggiunto questo traguardo. Congratulazioni, Lidia. E mi raccomando: diventa famosa, così potrò dire che ti conoscevo prima!</p><div class="signature">The world is yours. Go make it yours.</div></div></section>
+<section class="finale"><button class="door-hunt" data-room="5" aria-label="Porticina nascosta"></button><div class="finale-inner"><div class="eyebrow">05 / The next chapter</div><h2>Il mondo<br>è la tua <em>passerella.</em></h2><p>Due anni fa le nostre strade si sono incrociate. Da allora ci sono stati momenti, risate e ricordi che probabilmente non dimenticheremo facilmente. Oggi però il riflettore è tutto tuo. Sono davvero felice che tu abbia raggiunto questo traguardo. Congratulazioni, Lidia. E mi raccomando: diventa famosa, così potrò dire che ti conoscevo prima!</p><div class="flower-gift" aria-label="Un piccolo bouquet di fiori">
+<svg viewBox="0 0 300 190" role="img" aria-hidden="true">
+<path class="flower-stem" d="M150 164 Q130 112 83 82 M150 164 Q154 105 151 65 M150 164 Q177 112 220 83 M148 160 Q112 130 112 105 M153 160 Q190 132 190 105"/>
+<path class="flower-leaf" d="M126 132 Q91 111 85 128 Q104 147 126 132 M169 135 Q202 111 213 127 Q197 148 169 135 M137 148 Q111 139 106 153 Q123 166 137 148"/>
+<g class="bloom bloom-rose" transform="translate(82 70)"><ellipse rx="13" ry="24" cy="-15"/><ellipse rx="13" ry="24" cy="-15" transform="rotate(72)"/><ellipse rx="13" ry="24" cy="-15" transform="rotate(144)"/><ellipse rx="13" ry="24" cy="-15" transform="rotate(216)"/><ellipse rx="13" ry="24" cy="-15" transform="rotate(288)"/><circle r="9"/></g>
+<g class="bloom bloom-cream" transform="translate(151 48)"><ellipse rx="10" ry="21" cy="-13"/><ellipse rx="10" ry="21" cy="-13" transform="rotate(60)"/><ellipse rx="10" ry="21" cy="-13" transform="rotate(120)"/><ellipse rx="10" ry="21" cy="-13" transform="rotate(180)"/><ellipse rx="10" ry="21" cy="-13" transform="rotate(240)"/><ellipse rx="10" ry="21" cy="-13" transform="rotate(300)"/><circle r="8"/></g>
+<g class="bloom bloom-pink" transform="translate(220 70)"><ellipse rx="13" ry="23" cy="-14"/><ellipse rx="13" ry="23" cy="-14" transform="rotate(72)"/><ellipse rx="13" ry="23" cy="-14" transform="rotate(144)"/><ellipse rx="13" ry="23" cy="-14" transform="rotate(216)"/><ellipse rx="13" ry="23" cy="-14" transform="rotate(288)"/><circle r="9"/></g>
+<g class="bloom bloom-cream" transform="translate(111 96) scale(.62)"><ellipse rx="12" ry="23" cy="-14"/><ellipse rx="12" ry="23" cy="-14" transform="rotate(72)"/><ellipse rx="12" ry="23" cy="-14" transform="rotate(144)"/><ellipse rx="12" ry="23" cy="-14" transform="rotate(216)"/><ellipse rx="12" ry="23" cy="-14" transform="rotate(288)"/><circle r="8"/></g>
+<path class="flower-wrap" d="M112 148 Q150 169 188 148 L178 181 Q150 190 122 181 Z"/>
+<path class="flower-ribbon" d="M150 164 Q130 178 119 169 Q129 190 150 175 Q171 190 181 169 Q169 178 150 164"/>
+</svg></div>
+<div class="flower-dedication">Per tutte le cose belle che devono ancora sbocciare.</div>
+<div class="signature">The world is yours. Go make it yours.</div></div></section>
 </main>
 <div class="room-overlay" id="room-overlay" role="dialog" aria-modal="true" aria-labelledby="room-title"><div class="room-card"><button class="room-close" id="room-close" aria-label="Chiudi">×</button><div class="room-kicker" id="room-kicker">PORTAL ACCESS · 01</div><div id="room-game-view"><h3 id="room-title"></h3><p id="room-text"></p><div id="mini-game"></div></div><div id="room-reveal" hidden><div class="room-kicker">ACCESSO CONSENTITO · HIDDEN ROOM</div><h3 id="reveal-title"></h3><p id="reveal-text"></p></div><div class="door-progress" id="room-progress"></div><button class="room-exit" id="room-exit">Torna alla collezione ↗</button></div></div>
 <footer class="footer">THE FINAL COLLECTION · LIDIA · CLASS OF 2026</footer>
