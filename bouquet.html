@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eee5d8">
+<title>Un giardino per Lidia · The Final Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#4b1727;--wine2:#78394b;--cream:#f5eee3;--paper:#eee5d8;--gold:#b99a62;--pink:#d9a2aa;--rose:#a95068;--sage:#849071}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--wine);font-family:'Playfair Display',serif;overflow-x:hidden}
+.page{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:34px 22px 48px;position:relative;isolation:isolate}
+.page:before,.page:after{content:"";position:fixed;width:34vw;height:34vw;max-width:480px;max-height:480px;border:1px solid #b99a6240;border-radius:50%;z-index:-1;pointer-events:none}
+.page:before{top:-18vw;left:-13vw}.page:after{right:-15vw;bottom:-20vw;width:44vw;height:44vw}
+.topline{width:min(1120px,100%);display:flex;justify-content:space-between;gap:20px;font:10px 'DM Mono',monospace;letter-spacing:.16em;color:#8b756c;text-transform:uppercase}
+.hero{text-align:center;width:min(1120px,100%);margin:auto;padding:34px 0 20px}
+.eyebrow{font:10px 'DM Mono',monospace;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+h1{font-size:clamp(42px,7vw,88px);font-weight:400;line-height:.98;letter-spacing:-.045em;margin:18px 0 14px}
+h1 em{color:var(--wine2);font-weight:400}
+.subtitle{font-size:clamp(16px,2vw,21px);line-height:1.6;color:#79665f;max-width:590px;margin:0 auto}
+.bouquet{width:min(920px,100%);margin:12px auto 0;filter:drop-shadow(0 22px 22px #4b17271a);animation:rise 1.2s cubic-bezier(.2,.7,.2,1) both}
+.bouquet svg{display:block;width:100%;height:auto;overflow:visible}
+.stem{fill:none;stroke:#71805c;stroke-width:5;stroke-linecap:round}
+.leaf{fill:#8b9874;stroke:#687653;stroke-width:1.5}
+.leaf2{fill:#a2a17a;stroke:#78815e;stroke-width:1.3}
+.petal{stroke:#9d5365;stroke-width:1.2}
+.pink{fill:#d9a2aa}.rose{fill:#a95068}.blush{fill:#e7bdba}.ivory{fill:#f8efdc;stroke:#c7aa83}.burgundy{fill:#7e354d;stroke:#63253a}.center{fill:#c59b54;stroke:#a77d3d;stroke-width:2}
+.flower{transform-box:fill-box;transform-origin:center;animation:sway 5.5s ease-in-out infinite alternate}
+.flower:nth-of-type(2n){animation-delay:-2s}.flower:nth-of-type(3n){animation-delay:-3.5s}
+.wrap{fill:#c7a66c;stroke:#a8864e;stroke-width:2}.wrapshadow{fill:#8c5360}.ribbon{fill:#8b4357;stroke:#6d2c40;stroke-width:1.5}
+.dedication{font-size:clamp(21px,3vw,30px);font-style:italic;color:var(--wine2);margin:0 auto 25px;max-width:650px;line-height:1.4}
+.back{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--wine);border:1px solid #b99a6280;padding:14px 22px;font:10px 'DM Mono',monospace;letter-spacing:.13em;text-transform:uppercase;transition:.25s}
+.back:hover{background:var(--wine);color:var(--cream);transform:translateY(-2px)}
+.footer{font:9px 'DM Mono',monospace;letter-spacing:.18em;color:#9c887b;text-align:center;margin-top:42px}
+@keyframes rise{from{opacity:0;transform:translateY(25px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes sway{from{rotate:-1.3deg}to{rotate:1.3deg}}
+@media(max-width:600px){.page{padding:22px 16px 34px}.topline{font-size:8px}.hero{padding:52px 0 12px}.bouquet{width:112%;max-width:none;margin-left:-6%}.footer{margin-top:28px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="page">
+<div class="topline"><span>THE FINAL COLLECTION</span><span>A GIFT FOR LIDIA · 2026</span></div>
+<section class="hero">
+<div class="eyebrow">A little garden, just for you</div>
+<h1>Un giardino<br><em>tutto per te.</em></h1>
+<p class="subtitle">Per celebrare ciò che sei, quello che hai conquistato e tutte le meraviglie che ti aspettano.</p>
+<div class="bouquet">
+<svg viewBox="0 0 900 620" role="img" aria-label="Un grande bouquet illustrato di fiori rosa, bordeaux e color crema">
+<defs>
+<g id="roseFlower">
+<ellipse class="petal pink" cy="-30" rx="18" ry="36"/><ellipse class="petal blush" cy="-30" rx="18" ry="36" transform="rotate(45)"/><ellipse class="petal rose" cy="-30" rx="18" ry="36" transform="rotate(90)"/><ellipse class="petal pink" cy="-30" rx="18" ry="36" transform="rotate(135)"/><ellipse class="petal blush" cy="-30" rx="18" ry="36" transform="rotate(180)"/><ellipse class="petal rose" cy="-30" rx="18" ry="36" transform="rotate(225)"/><ellipse class="petal pink" cy="-30" rx="18" ry="36" transform="rotate(270)"/><ellipse class="petal blush" cy="-30" rx="18" ry="36" transform="rotate(315)"/><circle class="center" r="15"/>
+</g>
+<g id="daisy">
+<ellipse class="petal ivory" cy="-31" rx="13" ry="29"/><ellipse class="petal ivory" cy="-31" rx="13" ry="29" transform="rotate(45)"/><ellipse class="petal ivory" cy="-31" rx="13" ry="29" transform="rotate(90)"/><ellipse class="petal ivory" cy="-31" rx="13" ry="29" transform="rotate(135)"/><ellipse class="petal ivory" cy="-31" rx="13" ry="29" transform="rotate(180)"/><ellipse class="petal ivory" cy="-31" rx="13" ry="29" transform="rotate(225)"/><ellipse class="petal ivory" cy="-31" rx="13" ry="29" transform="rotate(270)"/><ellipse class="petal ivory" cy="-31" rx="13" ry="29" transform="rotate(315)"/><circle class="center" r="18"/>
+</g>
+<g id="tulip">
+<path class="petal pink" d="M0 12 C-37 -2 -38 -45 -24 -67 C-11 -51 -7 -44 0 -65 C9 -43 17 -51 27 -67 C41 -37 29 -3 0 12Z"/>
+<path d="M0 10 Q-4 -15 0 -57" fill="none" stroke="#b76d7b" stroke-width="2"/>
+</g>
+</defs>
+<!-- Stems -->
+<g class="stem">
+<path d="M450 500 Q390 280 205 145"/><path d="M450 500 Q430 245 360 88"/><path d="M450 500 Q480 230 525 80"/><path d="M450 500 Q545 285 700 155"/><path d="M450 500 Q325 300 300 225"/><path d="M450 500 Q590 315 620 235"/><path d="M450 500 Q420 320 445 205"/><path d="M450 500 Q260 370 145 300"/><path d="M450 500 Q660 360 765 300"/>
+</g>
+<!-- Leaves -->
+<g>
+<path class="leaf" d="M365 370 Q260 285 238 332 Q278 400 365 370Z"/><path class="leaf2" d="M380 420 Q270 385 260 430 Q320 467 380 420Z"/>
+<path class="leaf" d="M505 365 Q610 270 641 317 Q604 389 505 365Z"/><path class="leaf2" d="M490 430 Q610 386 626 435 Q559 477 490 430Z"/>
+<path class="leaf" d="M405 320 Q320 250 302 286 Q337 342 405 320Z"/><path class="leaf2" d="M490 300 Q565 225 594 260 Q554 322 490 300Z"/>
+<path class="leaf" d="M335 455 Q230 420 218 463 Q279 504 335 455Z"/><path class="leaf" d="M565 455 Q674 412 688 458 Q624 501 565 455Z"/>
+<path class="leaf2" d="M438 385 Q365 320 342 352 Q373 405 438 385Z"/><path class="leaf" d="M462 390 Q535 318 560 350 Q528 410 462 390Z"/>
+</g>
+<!-- Flowers -->
+<g class="flower" transform="translate(205 145) scale(1.12)"><use href="#roseFlower"/></g>
+<g class="flower" transform="translate(360 88) scale(.92)"><use href="#daisy"/></g>
+<g class="flower" transform="translate(525 80) scale(1.08)"><use href="#roseFlower"/></g>
+<g class="flower" transform="translate(700 155) scale(1.05)"><use href="#daisy"/></g>
+<g class="flower" transform="translate(300 225) scale(.78)"><use href="#tulip"/></g>
+<g class="flower" transform="translate(620 235) scale(.82)"><use href="#tulip"/></g>
+<g class="flower" transform="translate(445 205) scale(.88)"><use href="#daisy"/></g>
+<g class="flower" transform="translate(145 300) scale(.76)"><use href="#tulip"/></g>
+<g class="flower" transform="translate(765 300) scale(.78)"><use href="#tulip"/></g>
+<!-- Small filler flowers -->
+<g fill="#d9a2aa" stroke="#a95068" stroke-width="1.5">
+<circle cx="275" cy="115" r="8"/><circle cx="290" cy="100" r="7"/><circle cx="275" cy="88" r="6"/><circle cx="635" cy="125" r="8"/><circle cx="650" cy="110" r="7"/><circle cx="665" cy="128" r="6"/><circle cx="390" cy="185" r="7"/><circle cx="405" cy="170" r="6"/><circle cx="570" cy="190" r="7"/>
+</g>
+<!-- Bouquet paper -->
+<path class="wrapshadow" d="M300 390 Q450 440 600 390 L555 560 Q450 602 345 560Z"/>
+<path class="wrap" d="M320 385 Q450 430 580 385 L535 555 Q450 584 365 555Z"/>
+<path d="M320 385 Q450 450 580 385" fill="none" stroke="#ead6ad" stroke-width="3"/>
+<path class="ribbon" d="M450 485 C405 450 370 475 392 508 C412 530 438 505 450 492 C462 505 488 530 508 508 C530 475 495 450 450 485Z"/>
+<path class="ribbon" d="M447 492 Q408 545 390 558 Q426 562 450 512 Q474 562 510 558 Q492 545 453 492Z"/>
+<circle cx="450" cy="490" r="12" fill="#b99a62" stroke="#8b6d3e" stroke-width="2"/>
+</svg>
+</div>
+<p class="dedication">Per tutte le cose belle che devono ancora sbocciare.</p>
+<a class="back" href="index.html">← Torna alla collezione</a>
+</section>
+<div class="footer">WITH LOVE · THE FINAL COLLECTION · LIDIA</div>
+</main>
+</body>
+</html>
