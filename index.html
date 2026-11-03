@@ -105,7 +105,8 @@ function showResult(){
  const list=document.createElement('div');list.className='result-copy';
  list.innerHTML=choices.map((choice,index)=>'<p><span class="qcount">0'+(index+1)+'</span><br>'+choice+'</p>').join('');
  answersEl.appendChild(list);
- const finalScore=Math.round(totalScore/114*100);\n const score=document.createElement('div');score.className='result-title';score.textContent=finalScore+' / 100 PUNTI';
+ const finalScore=Math.round(totalScore/114*100);
+ const score=document.createElement('div');score.className='result-title';score.textContent=finalScore+' / 100 PUNTI';
  const bands=finalScore<75?['La sveglia ti teme, il guardaroba pure. Ma il potenziale da protagonista c’è tutto.','Risultato: caos creativo. Servono un outfit nuovo e almeno due ore di sonno.']:finalScore<90?['Sei a un passo dalla leggenda: manca solo trovare qualcosa da sgranocchiare.','Fashion, food e power nap: una triade quasi imbattibile.']:['Livello ICONA raggiunto. La fashion police ti teme e il frigorifero ti conosce per nome.','Punteggio stellare: ora conquista il mondo. Ma prima, una pennichella.'];
  feedbackEl.innerHTML='';feedbackEl.appendChild(score);
  const p=document.createElement('p');p.textContent=bands[Math.floor(Math.random()*bands.length)];feedbackEl.appendChild(p);
@@ -120,6 +121,33 @@ nextBtn.addEventListener('click',()=>{
 });
 restartBtn.addEventListener('click',()=>{currentQuestion=0;choices=[];totalScore=0;renderQuestion()});
 renderQuestion();
+
+
+const rooms=[
+{title:"Il reparto emergenze",text:"SANITÀ MENTALE NON TROVATA. Troppi anni di università rilevati. Riavvio della studentessa in corso… Se il sistema non risponde, provare con una vacanza e un aperitivo."},
+{title:"Il tribunale degli outfit",text:"Qui si conserva l'archivio delle mie scelte di stile finite sotto processo. La giudice è sempre Lidia. Il mio avvocato non si è presentato. La sentenza? «Potevi vestirti meglio»."},
+{title:"La camera del letargo",text:"Accesso consentito solo dopo almeno otto ore di sonno. Le chiamate sono silenziate, le tende chiuse e il tasto snooze è stato promosso a ministro."},
+{title:"Il ristorante dei forse",text:"«Questo non posso mangiarlo». «Vabbè, dai, solo un pezzetto». Il menu cambia, la tentazione resta. Qui non si giudica: si prende nota e si porta il dolce."},
+{title:"L'ufficio della fashion police",text:"Certificato ufficiale: Lidia può individuare un outfit discutibile a distanza, anche in condizioni di scarsa illuminazione. Potere non richiesto, ma esercitato con dedizione."},
+{title:"La stanza del futuro",text:"Le stelle hanno parlato: grandi progetti, outfit memorabili, posti nuovi da scoprire e qualcuno che continuerà a dire «io la conoscevo prima». Fine della previsione. Inizio della tua storia."}
+];
+const foundDoors=new Set();
+const overlay=document.getElementById('room-overlay');
+function openRoom(index){
+ const room=rooms[index];foundDoors.add(index);
+ document.getElementById('room-kicker').textContent='HIDDEN ROOM · 0'+(index+1);
+ document.getElementById('room-title').textContent=room.title;
+ document.getElementById('room-text').textContent=room.text;
+ document.getElementById('room-progress').textContent='PORTE SCOPERTE: '+foundDoors.size+' / 6';
+ document.getElementById('door-count').textContent=foundDoors.size;
+ overlay.classList.add('open');document.body.style.overflow='hidden';
+}
+function closeRoom(){overlay.classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.door-hunt').forEach(button=>button.addEventListener('click',()=>openRoom(Number(button.dataset.room))));
+document.getElementById('room-close').addEventListener('click',closeRoom);
+document.getElementById('room-exit').addEventListener('click',closeRoom);
+overlay.addEventListener('click',event=>{if(event.target===overlay)closeRoom()});
+document.addEventListener('keydown',event=>{if(event.key==='Escape')closeRoom()});
 
 </script>
 </body></html>
