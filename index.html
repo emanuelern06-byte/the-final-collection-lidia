@@ -274,7 +274,7 @@ function startGame(index){
  document.getElementById('room-kicker').textContent='ATTRAVERSAMENTO PORTALE · 0'+(index+1);
  if(gameCleanup){gameCleanup();gameCleanup=null;}
  if(index===0){
-  const walls=new Set([1,3,6,8,11,13,16,18,21,23]),path=[0,5,10,15,20,21,22,17,12,7,2,3,4,9,14,19,24];
+  const walls=new Set([1,6,8,11,13,16,18,23]),path=[0,5,10,15,20,21,22,17,12,7,2,3,4,9,14,19,24];
   let pos=0;
   const html='<p class="game-label">MINIGIOCO 01 · IL LABIRINTO</p><div class="game-grid" id="maze"></div><div class="game-pad"><span></span><button class="game-btn" data-move="-5">↑</button><span></span><button class="game-btn" data-move="-1">←</button><button class="game-btn" data-move="5">↓</button><button class="game-btn" data-move="1">→</button></div>';
   gameShell('TROVA L’USCITA',html);
@@ -289,14 +289,19 @@ function startGame(index){
   const box=document.getElementById('looks');opts.forEach(([t,v])=>{const b=document.createElement('button');b.className='game-btn';b.textContent=t;b.onclick=()=>{if(v==='yes')gameWin(index);else document.getElementById('game-feedback').textContent='La giuria ha chiesto di rivedere la proposta. Ritenta!'};box.appendChild(b)});
  }else if(index===2){
   gameShell('POWER NAP · RIFLESSI', '<p>Hai 7 secondi per catturare 5 stelle del sonno. Pronta?</p><div class="game-big" id="nap-count">0 / 5</div><div style="text-align:center"><button class="game-btn" id="nap-start">ATTIVA SNOOZE ✦</button></div><div class="game-progress"><span id="nap-progress"></span></div>');
-  let count=0,timer=null;const btn=document.getElementById('nap-start');
-  btn.onclick=()=>{if(btn.dataset.running)return;btn.dataset.running='1';btn.textContent='PRENDI LA STELLA ✦';const deadline=Date.now()+7000;const tick=()=>{if(count>=5){clearInterval(timer);gameWin(index)}else if(Date.now()>deadline){clearInterval(timer);btn.dataset.running='';btn.textContent='RIPROVA';document.getElementById('game-feedback').textContent='Ti sei riaddormentata a metà! Ancora un tentativo.'}};timer=setInterval(tick,100);btn.onclick=()=>{count++;document.getElementById('nap-count').textContent=count+' / 5';document.getElementById('nap-progress').style.width=(count*20)+'%';tick()};tick()};
+  let count=0,timer=null,deadline=0,started=false;const btn=document.getElementById('nap-start');
+  const reset=()=>{clearInterval(timer);timer=null;count=0;started=false;btn.textContent='RIPROVA';btn.disabled=false;document.getElementById('nap-count').textContent='0 / 5';document.getElementById('nap-progress').style.width='0%';document.getElementById('game-feedback').textContent='Ti sei riaddormentata a metà! Ancora un tentativo.'};
+  btn.onclick=()=>{if(!started){started=true;count=0;deadline=Date.now()+7000;btn.textContent='PRENDI LA STELLA ✦';timer=setInterval(()=>{if(Date.now()>deadline){reset()}},100);return}
+   count++;document.getElementById('nap-count').textContent=count+' / 5';document.getElementById('nap-progress').style.width=(count*20)+'%';
+   if(count>=5){clearInterval(timer);btn.disabled=true;gameWin(index)}
+  };
   gameCleanup=()=>clearInterval(timer);
  }else if(index===3){
   gameShell('MEMORIA DEL MENU', '<p>Memorizza l’ordine, poi ripetilo toccando gli ingredienti.</p><div class="food-sequence" id="food-sequence">🍓 → 🥐 → 🍰</div><div class="game-options" id="food-options"></div>');
   const seq=['🍓','🥐','🍰'];let step=0;const opts=['🍰','🍓','🍕','🥐'];const box=document.getElementById('food-options');
-  const buttons=[];opts.forEach(food=>{const b=document.createElement('button');b.className='game-btn';b.textContent=food;b.onclick=()=>{if(food===seq[step]){step++;document.getElementById('game-feedback').textContent='Giusto! '+step+' / 3';if(step===3)gameWin(index)}else{step=0;document.getElementById('game-feedback').textContent='Comanda sbagliata! Riparti dall’inizio.'}};buttons.push(b);box.appendChild(b)});
-  setTimeout(()=>{const el=document.getElementById('food-sequence');if(el)el.textContent='ORDINA LA SEQUENZA';},2600);
+  opts.forEach(food=>{const b=document.createElement('button');b.className='game-btn';b.textContent=food;b.disabled=true;b.onclick=()=>{if(food===seq[step]){step++;document.getElementById('game-feedback').textContent='Giusto! '+step+' / 3';if(step===3)gameWin(index)}else{step=0;document.getElementById('game-feedback').textContent='Comanda sbagliata! Riparti dall’inizio.'}};box.appendChild(b)});
+  const revealTimer=setTimeout(()=>{const el=document.getElementById('food-sequence');if(el)el.textContent='ORDINA LA SEQUENZA';box.querySelectorAll('button').forEach(b=>b.disabled=false)},2600);
+  gameCleanup=()=>clearTimeout(revealTimer);
  }else if(index===4){
   gameShell('CONTROLLO QUALITÀ · TROVA L’INTRUSO', '<p>Quale accessorio non appartiene a un look da sera?</p><div class="game-options" id="odd"></div>');
   const opts=[['👠','no'],['👜','no'],['🪥','yes'],['💎','no']];const box=document.getElementById('odd');opts.forEach(([t,v])=>{const b=document.createElement('button');b.className='game-btn';b.style.fontSize='28px';b.textContent=t;b.onclick=()=>{if(v==='yes')gameWin(index);else document.getElementById('game-feedback').textContent='La fashion police non è convinta. Osserva meglio.'};box.appendChild(b)});
