@@ -378,7 +378,7 @@ function startGame(index){
   startRound();
  }else if(index===4){
   const pool=[['👠','DÉCOLLETÉ','ok'],['👜','CLUTCH','ok'],['💎','GIOIELLO','ok'],['🕶️','OCCHIALE','ok'],['⌚','OROLOGIO','ok'],['🪭','VENTAGLIO','ok'],['👑','TIARA','ok'],['🧣','FOULARD','ok'],['🧤','GUANTI','ok'],['🪡','SPILLA','ok'],['👛','PORTAMONETE','ok'],['🪮','PETTINE','ok'],['🧢','CAPPELLINO SPORT','bad'],['🎒','ZAINO TECNICO','bad'],['🩴','INFRADITO','bad'],['🏀','PALLONE','bad'],['🧦','CALZINO FLUO','bad'],['🥽','MASCHERA SUB','bad'],['🛹','SKATE','bad'],['🧸','PELUCHE','bad']];
-  let found=0,miss=0,seconds=30,ended=false,clock;const chosen=new Set();
+  let found=0,miss=0,seconds=30,ended=false,clock;
   gameShell('MINIGIOCO 05 · FASHION POLICE','<p>Dress code: <b>black tie, sera, accessori raffinati</b>. Individua i <b>cinque intrusi</b> nascosti tra venti dettagli. Hai 30 secondi e un solo falso allarme. Ogni elemento si può selezionare una volta.</p><div class="game-stats"><span class="game-stat" id="odd-count">INTRUSI · 0 / 5</span><span class="game-stat" id="odd-errors">FALSI ALLARMI · 0 / 1</span><span class="game-stat" id="odd-time">TEMPO · 30s</span></div><div class="accessory-grid" id="accessories"></div>');
   const box=document.getElementById('accessories');
   function finishFail(msg){ended=true;cleanup();box.querySelectorAll('button').forEach(b=>b.disabled=true);feedback(msg)}
