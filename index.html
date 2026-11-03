@@ -105,8 +105,8 @@ function showResult(){
  const list=document.createElement('div');list.className='result-copy';
  list.innerHTML=choices.map((choice,index)=>'<p><span class="qcount">0'+(index+1)+'</span><br>'+choice+'</p>').join('');
  answersEl.appendChild(list);
- const score=document.createElement('div');score.className='result-title';score.textContent=totalScore+' / 100 PUNTI';
- const bands=totalScore<75?['La sveglia ti teme, il guardaroba pure. Ma il potenziale da protagonista c’è tutto.','Risultato: caos creativo. Servono un outfit nuovo e almeno due ore di sonno.']:totalScore<90?['Sei a un passo dalla leggenda: manca solo trovare qualcosa da sgranocchiare.','Fashion, food e power nap: una triade quasi imbattibile.']:['Livello ICONA raggiunto. La fashion police ti teme e il frigorifero ti conosce per nome.','Punteggio stellare: ora conquista il mondo. Ma prima, una pennichella.'];
+ const finalScore=Math.round(totalScore/114*100);\n const score=document.createElement('div');score.className='result-title';score.textContent=finalScore+' / 100 PUNTI';
+ const bands=finalScore<75?['La sveglia ti teme, il guardaroba pure. Ma il potenziale da protagonista c’è tutto.','Risultato: caos creativo. Servono un outfit nuovo e almeno due ore di sonno.']:finalScore<90?['Sei a un passo dalla leggenda: manca solo trovare qualcosa da sgranocchiare.','Fashion, food e power nap: una triade quasi imbattibile.']:['Livello ICONA raggiunto. La fashion police ti teme e il frigorifero ti conosce per nome.','Punteggio stellare: ora conquista il mondo. Ma prima, una pennichella.'];
  feedbackEl.innerHTML='';feedbackEl.appendChild(score);
  const p=document.createElement('p');p.textContent=bands[Math.floor(Math.random()*bands.length)];feedbackEl.appendChild(p);
  const congrats=document.createElement('p');congrats.textContent='Congratulazioni, Lidia. La collezione continua.';feedbackEl.appendChild(congrats);
